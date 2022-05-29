@@ -1,4 +1,4 @@
-![Getting Started](./finalResult.png)
+![Getting Started](./final.png)
 
 # Getting Started with Create React App
 

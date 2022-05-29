@@ -74,7 +74,7 @@ const App = () => {
                 <strong>Visibility: </strong>
                 <span>{weather.visibility / 1000} km</span>
               </p>
-              <p className="temp-content">
+              <p className="more-content">
                 <strong>Wind: </strong>
                 <span>{weather.wind.speed}km/h</span>
               </p>

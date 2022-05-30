@@ -6,12 +6,18 @@ import WeatherCard from "./components/weatherCard";
 const App = () => {
   const [weather, setWeather] = useState();
   const [query, setQuery] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const search = async (event) => {
-    if ((query && query.Length > 3) || event.key === "Enter") {
+    if (query && query.length < 3) {
+      setErrorMessage("Please enter more than 3 character to search");
+    } else setErrorMessage("");
+
+    if (query && query.length > 3 && event.key === "Enter") {
       try {
         const data = await fetchweather(query);
         setWeather(data);
+        setErrorMessage("");
         // setQuery("");
       } catch (error) {
         console.error(error);
@@ -32,6 +38,7 @@ const App = () => {
             onKeyPress={search}
           />
         </div>
+        <p className="errorMessage">{errorMessage}</p>
       </div>
       {weather && <WeatherCard weather={weather} />}
     </div>

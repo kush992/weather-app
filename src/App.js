@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchweather, date } from "./common/utility";
 import "./App.css";
 import WeatherCard from "./components/weatherCard";
@@ -9,10 +9,6 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const search = async (event) => {
-    if (query && query.length < 3) {
-      setErrorMessage("Please enter more than 3 character to search");
-    } else setErrorMessage("");
-
     if (query && query.length > 3 && event.key === "Enter") {
       try {
         const data = await fetchweather(query);
@@ -26,6 +22,12 @@ const App = () => {
     }
   };
 
+  useEffect(() => {
+    if (query && query.length < 4) {
+      setErrorMessage("Please enter more than 3 character to search");
+    } else setErrorMessage("");
+  }, [query]);
+
   return (
     <div className="App">
       <div className="header">
@@ -38,7 +40,7 @@ const App = () => {
             onKeyPress={search}
           />
         </div>
-        <p className="errorMessage">{errorMessage}</p>
+        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
       </div>
       {weather && <WeatherCard weather={weather} />}
     </div>

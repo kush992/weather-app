@@ -35,7 +35,7 @@ input {
   display: inline-block;
 }
 
-.result {
+.weather-card {
   align-items: center;
   text-align: center;
   background: transparent;
@@ -46,35 +46,41 @@ input {
   display: inline-block;
 }
 
-.result-header {
+.weather-card__country {
+  background: #eb6e4c;
+  padding: 2px 3px;
+  border-radius: 10px;
+}
+
+.weather-card__header {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: left;
 }
 
-.temp {
+.weather-card__temp {
   font-size: 42px;
   padding: 10px;
 }
 
-.info {
+.weather-card__description {
   text-transform: uppercase;
 }
 
-.other-info {
+.weather-card__info {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 30px;
   padding: 20px;
 }
 
-.more-content {
+.weather-card__detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: left;
 }
 
-.more-content span {
+.weather-card__detail span {
   text-align: right;
 }

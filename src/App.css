@@ -1,3 +1,21 @@
+/*  color variables */
+:root {
+  --background: #ffffff;
+  --text-primary: #000;
+  --text-secondary: #8e05c2;
+  --accent: #8e05c2;
+  --border: #333;
+  --form-bg: 1#fff;
+}
+
+[data-theme='dark'] {
+  --background: #000;
+  --text-primary: #fff;
+  --text-secondary: #8e05c2;
+  --accent: #8e05c2;
+  --border: #808080;
+  --form-bg: #191919;
+}
 input {
   height: 20px;
   width: 50%;
@@ -32,7 +50,8 @@ input {
   margin: 40px;
   border-radius: 10px;
   width: 60%;
-  display: inline-block;
+  margin-inline: auto;
+    /* display: inline-block; */
 }
 
 .errorMessage {
@@ -50,7 +69,8 @@ input {
   width: 50%;
   border-radius: 10px;
   padding: 30px;
-  display: inline-block;
+  /* display: inline-block; */
+    margin-inline: auto;
 }
 
 .weather-card__country {
